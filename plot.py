@@ -76,15 +76,16 @@ def generate_table(count, percentage, columns, include_sentiments=False):
 
 
 def get_distinct_colors(n):
-    colors = []
-    golden_ratio_conjugate = 0.618033988749895
-    hue = 0
-    for i in range(n):
-        hue += golden_ratio_conjugate
-        hue %= 1
-        rgb = mcolors.hsv_to_rgb([hue, 0.9, 0.9])  # Higher saturation and value for more vibrant colors
-        colors.append(mcolors.rgb2hex(rgb))
-    return colors
+    base_colors = list(mcolors.TABLEAU_COLORS.values())
+    if n <= len(base_colors):
+        return base_colors[:n]
+
+    # Generate additional colors if needed
+    additional_colors = []
+    for i in range(n - len(base_colors)):
+        additional_colors.append(mcolors.hsv_to_rgb([i / (n - len(base_colors)), 0.5, 0.5]))
+
+    return base_colors + additional_colors
 
 def autopct_generator(limit):
     def inner_autopct(pct):
