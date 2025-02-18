@@ -1,6 +1,10 @@
 # Sanremo Music Festival Analysis
 
-This project aims to analyze the prevalence of love songs in the Sanremo Music Festival 2025. The analysis involves collecting song lyrics, using AI to extract common themes and sentiments, and visualizing the data through various graphs.
+For the first time in my life I decided to watch the Sanremo Music Festival, and I noticed that most of the songs were about love. I was curious to know if this was indeed an objective truth, so I decided to analyze the songs from the 2025 edition using AI to see if my observation was correct.
+
+## Data Collection
+
+I manually collected online the songs titles and lyrics from the 2025 edition of the Sanremo Music Festival. Then I manually added a "biogender" label indicating the artist biological gender. I labelled groups by the majority with one exception: "Coma_Cose" is a duo composed in equal parts.
 
 ## Pre-rendered Tables and Pies
 
@@ -25,12 +29,13 @@ This project aims to analyze the prevalence of love songs in the Sanremo Music F
 ## Project Structure
 
 - `sanremo.json`: Contains the collected song lyrics and metadata.
-- `ai.py`: Uses OpenAI to classify songs with appropriate themes and perform sentiment analysis.
+- `ai.py`: Uses OpenAI to classify songs and perform sentiment analysis.
 - `plot.py`: Creates graphs to visualize the data.
-- `.gitignore`: Specifies files and directories to be ignored by Git.
 - `.env`: Stores environment variables, including the OpenAI API key.
 
-## Setup
+## How to run
+
+### Setup
 
 1. Clone the repository.
 2. Create a virtual environment and activate it:
@@ -47,9 +52,9 @@ This project aims to analyze the prevalence of love songs in the Sanremo Music F
    OPENAI_API_KEY=your_openai_api_key
    ```
 
-## Usage
+### Usage
 
-### Classify Songs
+#### Classify Songs
 
 To classify songs with themes and perform sentiment analysis, run:
 ```sh
@@ -57,7 +62,13 @@ python ai.py
 ```
 This script will update the `sanremo.json` file with the classification results.
 
-### Generate Visualizations
+To extract the common themes and genres add the --labels flag:
+```sh
+python ai.py --labels
+```
+This script will update the `labels.json` file.
+
+#### Generate Visualizations
 
 To generate visualizations of the data, run:
 ```sh
@@ -72,4 +83,4 @@ This script will create graphs and save them in the `generated` directory.
 
 ## Conclusion
 
-This project provides insights into the themes and sentiments prevalent in the Sanremo Music Festival songs, confirming the initial observation of the prevalence of love songs.
+This project provides insights into the themes in the Sanremo Music Festival songs, confirming the initial observation of the prevalence of love songs and unlocking other interesting patterns. The visualizations help to understand the distribution of themes, genres, and sentiments in the songs, including the gender differences, providing a comprehensive overview of the festival's music.

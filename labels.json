@@ -1,0 +1,52 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "temi_principali": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "uniqueItems": true
+        },
+        "generi_musicali": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "uniqueItems": true
+        }
+    },
+    "required": [
+        "temi_principali",
+        "generi_musicali"
+    ],
+    "temi_principali": [
+        "Amore",
+        "Nostalgia",
+        "Relazioni",
+        "Giovinezza",
+        "Crescita personale",
+        "Identità",
+        "Solitudine",
+        "Vulnerabilità",
+        "Famiglia",
+        "Conflitto interiore",
+        "Ribellione",
+        "Critica sociale"
+    ],
+    "generi_musicali": [
+        "Pop",
+        "Trap",
+        "Elettronica",
+        "Rap",
+        "Hip-hop",
+        "Indie",
+        "Folk",
+        "Soul",
+        "R&B",
+        "Cantautorale",
+        "Urban",
+        "Rock"
+    ]
+}
